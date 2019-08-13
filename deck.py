@@ -1,4 +1,3 @@
-import copy
 import random
 
 class Deck:
@@ -11,7 +10,7 @@ class Deck:
         self.cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
         self.deck_suits = [x + str(y) for x in self.suits for y in self.cards]
         self.deck_books = [y + str(x) for x in self.cards for y in self.suits]
-        self.play_deck = copy.copy(self.deck_suits)
+        self.play_deck = self.deck_suits[:]
         self.players_dict = dict()
         self.num_players = 0
         
