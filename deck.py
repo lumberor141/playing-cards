@@ -28,17 +28,17 @@ class Deck:
             index += 1
 
     def sort(self, sort_by='suits'):
-        '''A method that sorts the cards in each player's hand.
-            "sort_by" key determines if the hands are sorted by suit or number.
-        '''
+    '''A method that sorts the cards in each player's hand.
+        "sort_by" key determines if the hands are sorted by suit or number.
+    '''
+        #create a tuple deck, giving each card a number 0-51 for example (0, ♠2)
         if sort_by == 'cards':
             self.tuples_deck = [(x, y) for x, y in zip(range(52), self.deck_books)]
         else:
             self.tuples_deck = [(x, y) for x, y in zip(range(52), self.deck_suits)]
         for player in self.players_dict.keys():
-            self.placeholder = []
-            for card in self.players_dict[player]:
-                for tuple in self.tuples_deck:
-                    if card in tuple:
-                        self.placeholder.append(tuple)
+            #create a placeholder list which appends the corresponding tuple for each card in player's hand
+            self.placeholder = [card_tuple for card in self.players_dict[player]
+                                for card_tuple in self.tuples_deck if card in card_tuple]
+            #replace hand with sorted placeholder list
             self.players_dict[player] = [y for x, y in sorted(self.placeholder)]
