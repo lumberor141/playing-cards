@@ -41,5 +41,4 @@ class Deck:
                 for tuple in self.tuples_deck:
                     if card in tuple:
                         self.placeholder.append(tuple)
-            self.players_dict[player] = sorted(self.placeholder)
-            self.players_dict[player] = [y for x, y in self.players_dict[player]]
+            self.players_dict[player] = [y for x, y in sorted(self.placeholder)]
