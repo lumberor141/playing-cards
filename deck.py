@@ -28,9 +28,9 @@ class Deck:
             index += 1
 
     def sort(self, sort_by='suits'):
-    '''A method that sorts the cards in each player's hand.
-        "sort_by" key determines if the hands are sorted by suit or number.
-    '''
+        '''A method that sorts the cards in each player's hand.
+            "sort_by" key determines if the hands are sorted by suit or number.
+        '''
         #create a tuple deck, giving each card a number 0-51 for example (0, ♠2)
         if sort_by == 'cards':
             self.tuples_deck = [(x, y) for x, y in zip(range(52), self.deck_books)]
